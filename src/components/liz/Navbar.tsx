@@ -104,7 +104,7 @@ export function Navbar() {
                 size="sm"
                 className="hidden sm:inline-flex"
               >
-                Order Now
+                WhatsApp Order
                 <ArrowUpRight
                   className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"

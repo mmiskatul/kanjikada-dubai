@@ -148,10 +148,10 @@ export function LocationHoursSection() {
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                    Order Delivery
+                    WhatsApp Order
                   </span>
                   <p className="font-display text-sm font-bold text-foreground">
-                    {restaurant.orderPlatform} UAE
+                    {restaurant.phone}
                   </p>
                 </div>
               </a>

@@ -84,7 +84,9 @@ export function ReviewsSection() {
                       <Star key={i} className="size-3.5 fill-gold text-gold" />
                     ))}
                   </div>
-                  <MessageSquareQuote className="size-5 text-primary/30" />
+                  <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[0.6875rem] font-semibold text-primary">
+                    {rev.tag}
+                  </span>
                 </div>
 
                 <h3 className="mt-4 font-display text-base font-bold text-foreground">
@@ -94,9 +96,17 @@ export function ReviewsSection() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">"{rev.body}"</p>
               </div>
 
-              <div className="mt-6 flex items-center gap-2 pt-4 border-t border-border/60 text-xs font-medium text-muted-foreground">
-                <CheckCircle2 className="size-3.5 text-emerald-600" />
-                <span>Verified Diner Feedback</span>
+              <div className="mt-6 flex items-center justify-between pt-4 border-t border-border/60 text-xs">
+                <div className="flex items-center gap-1.5 font-medium text-foreground">
+                  <span className="flex size-6 items-center justify-center rounded-full bg-primary text-[0.625rem] font-bold text-primary-foreground">
+                    {rev.reviewer.charAt(0)}
+                  </span>
+                  <span>{rev.reviewer}</span>
+                </div>
+                <div className="flex items-center gap-1 text-emerald-600 font-medium text-[0.6875rem]">
+                  <CheckCircle2 className="size-3" />
+                  <span>Google Review • {rev.date}</span>
+                </div>
               </div>
             </ScrollReveal>
           ))}

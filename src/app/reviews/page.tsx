@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Star, MessageSquareQuote, ArrowUpRight, CheckCircle, ThumbsUp } from "lucide-react";
+import {
+  Star,
+  MessageSquareQuote,
+  ArrowUpRight,
+  CheckCircle2,
+  ThumbsUp,
+  MessageCircle,
+} from "lucide-react";
 
 import reviewsHeroImage from "@/assets/hero-reviews.jpg";
 import { restaurant } from "@/data/restaurant";
@@ -14,27 +21,28 @@ import { LizLink } from "@/components/liz/LizButton";
 import { ScrollReveal } from "@/components/liz/ScrollReveal";
 
 const ratingsBreakdown = [
-  { stars: 5, percentage: 84 },
-  { stars: 4, percentage: 12 },
-  { stars: 3, percentage: 3 },
+  { stars: 5, percentage: 88 },
+  { stars: 4, percentage: 9 },
+  { stars: 3, percentage: 2 },
   { stars: 2, percentage: 0.5 },
   { stars: 1, percentage: 0.5 },
 ];
 
 const sentimentTags = [
   "All",
-  "Authentic flavours",
-  "Generous portions",
-  "Honest value",
-  "Kerala breakfast",
-  "Warm service",
+  "Special Matta Kanji",
+  "Kappa & Fish Curry",
+  "Beef / Pothu Roast",
+  "Nadan Pazhamkanji",
+  "Homely Service",
+  "Honest Value",
 ];
 
 export default function ReviewsPage() {
   const [selectedTag, setSelectedTag] = useState<string>("All");
 
   const filteredReviews =
-    selectedTag === "All" ? reviewThemes : reviewThemes.filter((r) => r.theme === selectedTag);
+    selectedTag === "All" ? reviewThemes : reviewThemes.filter((r) => r.tag === selectedTag);
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -43,30 +51,39 @@ export default function ReviewsPage() {
       <main>
         {/* Page Hero */}
         <PageHeader
-          eyebrow="Guest Sentiments"
+          eyebrow="Guest Sentiments &amp; Love"
           title={
             <>
-              Rated 4.7 Stars by <br />
-              <span className="text-gold">2,800+ Diners in Dubai</span>
+              Rated {restaurant.rating.value} Stars by <br />
+              <span className="text-gold">
+                {restaurant.rating.count.toLocaleString()}+ Diners in Dubai
+              </span>
             </>
           }
-          description="Honest feedback and impressions from thousands of guests who make Kanjikada Dubai their daily dining home in Al Karama."
+          description="Honest feedback and genuine memories from thousands of guests who make Kanjikada Dubai their everyday home for comfort food in Al Karama."
           imageSrc={reviewsHeroImage}
           imageAlt="Happy diners enjoying steaming hot Kerala kanji and meals"
           breadcrumbs={[{ label: "Home", to: "/" }, { label: "Reviews" }]}
         >
           <LizLink
-            href={restaurant.mapsUrl}
+            href={restaurant.orderUrl}
             target="_blank"
             rel="noopener noreferrer"
             variant="gold"
             size="md"
           >
-            Read Google Reviews
-            <ArrowUpRight className="size-4" />
+            <MessageCircle className="size-4" />
+            Order on WhatsApp
           </LizLink>
-          <LizLink href="/menu" variant="ghostOnDark" size="md">
-            Order What They Love
+          <LizLink
+            href={restaurant.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="ghostOnDark"
+            size="md"
+          >
+            Read on Google Maps
+            <ArrowUpRight className="size-4" />
           </LizLink>
         </PageHeader>
 
@@ -93,8 +110,8 @@ export default function ReviewsPage() {
                     Exceptional Google Rating
                   </h3>
                   <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                    Based on verified public reviews on Google Maps for Kanjikada Dubai, 31 2B St,
-                    Al Karama.
+                    Based on {restaurant.rating.count.toLocaleString()}+ verified Google reviews for
+                    Kanjikada Dubai (കഞ്ഞിക്കട ദുബായ്) at 31 2B St, Al Karama.
                   </p>
                 </div>
               </ScrollReveal>
@@ -163,7 +180,9 @@ export default function ReviewsPage() {
                           <Star key={i} className="size-3.5 fill-gold text-gold" />
                         ))}
                       </div>
-                      <MessageSquareQuote className="size-5 text-primary/40" />
+                      <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[0.6875rem] font-semibold text-primary">
+                        {rev.tag}
+                      </span>
                     </div>
 
                     <h3 className="mt-4 font-display text-base font-bold text-foreground">
@@ -174,15 +193,17 @@ export default function ReviewsPage() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1 text-emerald-600 font-medium">
-                      <CheckCircle className="size-3.5" />
-                      Google Verified
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <ThumbsUp className="size-3 text-primary" />
-                      Recommended
-                    </span>
+                  <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2 font-medium text-foreground">
+                      <span className="flex size-6 items-center justify-center rounded-full bg-primary text-[0.625rem] font-bold text-primary-foreground">
+                        {rev.reviewer.charAt(0)}
+                      </span>
+                      <span>{rev.reviewer}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-emerald-600 font-medium text-[0.6875rem]">
+                      <CheckCircle2 className="size-3.5" />
+                      <span>{rev.date}</span>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}
@@ -193,22 +214,32 @@ export default function ReviewsPage() {
         {/* Reviews Section Component */}
         <ReviewsSection />
 
-        {/* Leave a review banner */}
+        {/* Leave a review & Order banner */}
         <section className="py-16 bg-primary-deep text-primary-foreground">
           <div className="mx-auto w-full max-w-3xl px-5 text-center sm:px-8">
             <h3 className="font-display text-2xl font-bold sm:text-3xl">
-              Have You Dined with Us Recently?
+              Have You Dined with Us at 31 2B St, Karama?
             </h3>
             <p className="mt-3 text-sm text-primary-foreground/80">
-              Your feedback means the world to our kitchen and service team. Share your thoughts on
-              Google Maps!
+              Your feedback means the world to our kitchen and service team. Share your experience
+              or order on WhatsApp!
             </p>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <LizLink
+                href={restaurant.orderUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="gold"
+                size="lg"
+              >
+                <MessageCircle className="size-4" />
+                Order on WhatsApp ({restaurant.phone})
+              </LizLink>
               <LizLink
                 href={restaurant.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="gold"
+                variant="ghostOnDark"
                 size="lg"
               >
                 Leave a Google Review

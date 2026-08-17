@@ -26,12 +26,16 @@ export const restaurant = {
   },
   phone: "+971 56 486 1028",
   phoneHref: "tel:+971564861028",
+  whatsapp: "+971 56 486 1028",
+  whatsappHref:
+    "https://wa.me/971564861028?text=Hello%20Kanjikada%20Dubai%2C%20I%20would%20like%20to%20place%20an%20order.",
   mapsUrl: "https://maps.app.goo.gl/okMLykn3kX67s37r5",
   mapEmbedQuery: "Kanjikada Dubai, 31 2B St, Al Karama, Dubai",
-  orderUrl: "https://maps.app.goo.gl/okMLykn3kX67s37r5",
-  orderPlatform: "Takeaway & Delivery",
+  orderUrl:
+    "https://wa.me/971564861028?text=Hello%20Kanjikada%20Dubai%2C%20I%20would%20like%20to%20place%20an%20order.",
+  orderPlatform: "WhatsApp Order",
   priceRange: "AED 1–45",
-  services: ["Dine-in", "Takeaway", "Home Delivery"],
+  services: ["Dine-in", "Takeaway", "WhatsApp Home Delivery"],
   rating: { value: 4.8, max: 5, count: 1840, source: "Google" },
   /** Only verified profiles should be added here. */
   socials: [
