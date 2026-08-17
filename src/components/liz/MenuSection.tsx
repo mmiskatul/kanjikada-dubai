@@ -45,11 +45,11 @@ export function MenuSection() {
           eyebrow="Authentic Flavours"
           title={
             <>
-              Traditional Kerala &amp; <br className="hidden sm:inline" />
-              <span className="text-primary">South Indian Delicacies</span>
+              Traditional Kanji &amp; <br />
+              <span className="text-primary">Nadan Kerala Specialities</span>
             </>
           }
-          copy="Prepared fresh daily with traditional Kerala spices, cold-pressed coconut oil, and generations of culinary mastery in Al Karama."
+          copy="Steaming hot Kerala Matta Kanji served in earthenware, spicy Kappa Meen Curry, slow-roasted Pothu, and traditional delicacies in Al Karama."
           align="center"
         />
 
@@ -338,8 +338,13 @@ export function MenuSection() {
                     {activeDish.diet === "veg" ? "Vegetarian" : "Non-Vegetarian"}
                   </div>
                 </div>
-                <DialogTitle className="font-display text-2xl font-bold mt-1 text-foreground">
-                  {activeDish.name}
+                <DialogTitle className="font-display text-2xl font-bold mt-1 text-foreground flex items-center justify-between gap-2">
+                  <span>{activeDish.name}</span>
+                  {activeDish.nativeName && (
+                    <span className="text-sm font-sans font-medium text-primary">
+                      {activeDish.nativeName}
+                    </span>
+                  )}
                 </DialogTitle>
                 <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {activeDish.description}

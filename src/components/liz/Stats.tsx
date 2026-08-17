@@ -4,10 +4,10 @@ import { AnimatedCounter } from "./AnimatedCounter";
 import { ScrollReveal } from "./ScrollReveal";
 
 const stats = [
-  { value: 4.7, decimals: 1, suffix: "", label: "Google rating" },
-  { value: 2823, decimals: 0, suffix: "+", label: "Happy reviews" },
-  { value: 50, decimals: 0, prefix: "AED 1–", label: "Average price" },
-  { value: 100, decimals: 0, suffix: "%", label: "Authentic Kerala flavours" },
+  { value: 4.8, decimals: 1, suffix: "", label: "Google rating in Karama" },
+  { value: 1840, decimals: 0, suffix: "+", label: "Happy guest reviews" },
+  { value: 45, decimals: 0, prefix: "AED 1–", label: "Affordable average price" },
+  { value: 100, decimals: 0, suffix: "%", label: "Homely Kerala Matta Kanji" },
 ];
 
 export function Stats() {

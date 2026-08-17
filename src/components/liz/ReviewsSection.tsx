@@ -16,11 +16,12 @@ export function ReviewsSection() {
           eyebrow="Guest Testimonials"
           title={
             <>
-              Loved by 2,800+ Diners in <br className="hidden sm:inline" />
+              Loved by {restaurant.rating.count.toLocaleString()}+ Diners in{" "}
+              <br className="hidden sm:inline" />
               <span className="text-primary">Al Karama &amp; Beyond</span>
             </>
           }
-          copy="See what our community says about our homely Kerala flavours, friendly service, and unbeatable value."
+          copy="See what our community says about our steaming hot Kerala kanji sets, fiery seafood, and homely hospitality."
           align="center"
         />
 
