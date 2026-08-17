@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B4D3E" />
+      <stop offset="100%" stop-color="#0E2E25" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7D070" />
+      <stop offset="100%" stop-color="#D4A017" />
+    </linearGradient>
+    <linearGradient id="terracotta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2725B" />
+      <stop offset="100%" stop-color="#B84A39" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="url(#bg)" />
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="none" stroke="url(#gold)" stroke-width="2.5" opacity="0.7" />
+  
+  <!-- Traditional Clay Pot (Chatti / Earthen Kanji Vessel) -->
+  <!-- Steam lines -->
+  <path d="M52 24 C50 20 54 16 52 12" stroke="url(#gold)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8" />
+  <path d="M64 22 C62 17 66 14 64 10" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M76 24 C74 20 78 16 76 12" stroke="url(#gold)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8" />
+  
+  <!-- Pot Body -->
+  <ellipse cx="64" cy="36" rx="28" ry="7" fill="url(#gold)" />
+  <path d="M36 36 C36 58 44 76 64 76 C84 76 92 58 92 36 Z" fill="url(#terracotta)" />
+  <ellipse cx="64" cy="38" rx="24" ry="4" fill="#6B271A" opacity="0.4" />
+
+  <!-- Malayalam "ക" character in gold on pot -->
+  <text x="64" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="url(#gold)" text-anchor="middle">ക</text>
+  
+  <!-- "KANJIKADA" Brand text -->
+  <text x="64" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">KANJIKADA</text>
+  <text x="64" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="9" fill="url(#gold)" text-anchor="middle" letter-spacing="1">DUBAI</text>
+</svg>
